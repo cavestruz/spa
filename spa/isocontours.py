@@ -40,3 +40,4 @@ def visualize_substructure(image_data, substructure_contour, axis,
     axis.annotate(annotate, (0.5,0.9),fontsize='xx-large',
                              color='white', xycoords='axes fraction') 
 
+
