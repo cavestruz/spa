@@ -2,6 +2,22 @@ import numpy as np
 from skimage import measure, draw
 from skimage.morphology import label
 
+properties_from_regionsprops = ['area', 'bbox', 'bbox_area', 
+                                                 'centroid', 'convex_area',
+                                                 'eccentricity', 'equivalent_diameter',
+                                                 'extent', 'inertia_tensor', 
+                                                 'inertia_tensor_eigvals', 'local_centroid',
+                                                 'major_axis_length', 'max_intensity',
+                                                 'mean_intensity', 'min_intensity',
+                                                 'minor_axis_length', 'moments',
+                                                 'moments_central', 'moments_hu',
+                                                 'moments_normalized', 'orientation',
+                                                 'perimeter', 'weighted_centroid', 
+                                                 'weighted_local_centroid', 'weighted_moments',
+                                                 'weighted_moments_central', 'weighted_moments_hu',
+                                                 'weighted_moments_normalized' 
+                                                 ]
+
 def get_longest_contour(image, contour_value) :
   '''
   Input:
@@ -132,3 +148,4 @@ def get_isocontour_regions(image, contour_value) :
   contours = measure.find_contours(image, contour_value)  
   sorted(contours, key = lambda i: i.size)
   return contours[1:]
+
