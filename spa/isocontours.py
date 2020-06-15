@@ -70,6 +70,17 @@ def zoom_image(image, zoom_factor=1) :
                int( image.shape[1]/2 )+int( image.shape[1]/(zoom_factor*2) ),\
                ]
 
+def get_region_properties(image, contour) : 
+  '''Get properties of region carved out by longest contour using
+  skimage.measure regionprops.  Returns the regionprops object and the region to 
+  plot/visually compare'''
+
+  region_img = get_pixels_in_countour(image.shape, contour)
+  label_image = label(region_img)
+  region_properties = measure.regionprops(label_image,intensity_image=image)
+  selected_region = region_img.astype(np.uint8)
+  return region_properties, selected_region
+
 def visualize_cluster(filename, axis, draw_contour=True,
                       get_contour_method=get_longest_contour,
                       get_contour_kwargs={'contour_value':1e-4},
@@ -91,17 +102,6 @@ def visualize_cluster(filename, axis, draw_contour=True,
   if annotate :
     axis.annotate(annotate, (0.5,0.9),fontsize='xx-large',
                              color='white', xycoords='axes fraction')
-
-def get_region_properties(image, contour) :
-  '''Get properties of region carved out by longest contour using
-  skimage.measure regionprops.  Returns the regionprops object and the region to
-  plot/visually compare'''
-
-  region_img = get_pixels_in_countour(image.shape, contour)
-  label_image = label(region_img)
-  region_properties = measure.regionprops(label_image,intensity_image=image)
-  selected_region = region_img.astype(np.uint8)
-  return region_properties, selected_region
 
 def get_region_properties_dictionary(filename,
                                      get_contour_method=get_longest_contour,
