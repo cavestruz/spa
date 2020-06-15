@@ -70,6 +70,8 @@ def zoom_image(image, zoom_factor=1) :
                int( image.shape[1]/2 )+int( image.shape[1]/(zoom_factor*2) ),\
                ]
 
+print(get_pixels_in_contour)
+
 def get_region_properties(image, contour) : 
   '''Get properties of region carved out by longest contour using
   skimage.measure regionprops.  Returns the regionprops object and the region to 
