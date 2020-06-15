@@ -2,6 +2,7 @@ import numpy as np
 from skimage import measure, draw
 from skimage.morphology import label
 from astropy.io import fits
+from matplotlib.colors import LogNorm
 
 properties_from_regionsprops = ['area', 'bbox', 'bbox_area', 
                                                  'centroid', 'convex_area',
