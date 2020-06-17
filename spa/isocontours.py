@@ -100,7 +100,7 @@ def visualize_cluster(filename, axis, draw_contour=True,
     if plot_only_region :
       # Below, selected_region correpsonds to the pixels in the contour
       _, selected_region = get_region_properties(image_data, contour)
-      axis.imshow(region)
+      axis.imshow(selected_region)
   if annotate :
     axis.annotate(annotate, (0.5,0.9),fontsize='xx-large',
                              color='white', xycoords='axes fraction')
