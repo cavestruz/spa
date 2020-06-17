@@ -77,7 +77,7 @@ def get_region_properties(image, contour) :
   skimage.measure regionprops.  Returns the regionprops object and the region to 
   plot/visually compare'''
 
-  region_img = get_pixels_in_countour(image.shape, contour)
+  region_img = get_pixels_in_contour(image.shape, contour)
   label_image = label(region_img)
   region_properties = measure.regionprops(label_image,intensity_image=image)
   selected_region = region_img.astype(np.uint8)
