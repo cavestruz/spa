@@ -54,7 +54,7 @@ def visualize_substructure(image_data, substructure_contour, axis,
 
   axis.plot(substructure_contour[:,1],substructure_contour[:,0], lw=2., color='red')
   if plot_only_region :
-    _, region = get_region_properties(image_data, contour)
+    _, region = get_region_properties(image_data, substructure_contour)
     axis.imshow(region)
 
   if annotate :
